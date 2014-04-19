@@ -1,13 +1,16 @@
 from nose import with_setup
 from Panini import Pack
+import Panini
 
 def setupFunction():
     global pack
-    pack = Pack.generate_pack()
+    global size
+    size = Panini.STICKERS_PER_PACK
+    pack = Pack.generate_pack(size, Panini.NUMBER_OF_STICKERS)
 
 @with_setup(setupFunction)
-def test_pack_contains_7_stickers():
-    assert len(pack) == 7, "Pack contains did not contain 7 stickers. Contains {0} stickers".format(len(pack))
+def test_pack_contains_size_stickers():
+    assert len(pack) == size, "Pack contains did not contain 7 stickers. Contains {0} stickers".format(len(pack))
 
 @with_setup(setupFunction)
 def test_pack_does_not_contain_duplicates():
