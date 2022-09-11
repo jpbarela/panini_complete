@@ -3,26 +3,46 @@ import math
 class Accumulator:
 
     def __init__(self):
-        self.total = []
-        self.total_of_squares = 0
-        self.count = 0
+        self.total_packs = []
+        self.total_of_squares_packs = 0
+        self.count_packs = 0
 
-    def add_value(self, value):
-        self.count += 1
-        self.total.append(value)
-        self.total_of_squares += value**2
+        self.total_stickers = []
+        self.total_of_squares_stickers = 0
+        self.count_stickers = 0
 
-    def average(self):
-        return sum(self.total) / self.count
+    def add_value_packs(self, value):
+        self.count_packs += 1
+        self.total_packs.append(value)
+        self.total_of_squares_packs += value ** 2
 
-    def min(self):
-        return min(self.total)
+    def add_value_stickers(self, value):
+        self.count_stickers += 1
+        self.total_stickers.append(value)
+        self.total_of_squares_stickers += value ** 2
 
-    def max(self):
-        return max(self.total)
 
-    def variance(self):
-        return (self.total_of_squares / self.count) - (self.average()**2)
+    def average_packs(self):
+        return sum(self.total_packs) / self.count_packs
 
-    def standard_deviation(self):
-        return math.sqrt(self.variance())
+    def min_packs(self):
+        return min(self.total_packs)
+
+    def max_packs(self):
+        return max(self.total_packs)
+
+    def variance_packs(self):
+        print((self.total_of_squares_packs / self.count_packs) - (self.average_packs() ** 2))
+        return (self.total_of_squares_packs / self.count_packs) - (self.average_packs() ** 2)
+
+    def standard_deviation_packs(self):
+        return math.sqrt(self.variance_packs())
+
+    def average_stickers(self):
+        return sum(self.total_stickers) / self.count_stickers
+
+    def min_stickers(self):
+        return min(self.total_stickers)
+
+    def max_stickers(self):
+        return max(self.total_stickers)

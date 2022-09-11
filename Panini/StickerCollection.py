@@ -30,16 +30,16 @@ class SpecificSticker:
         self.collection = [0] * size
         self.stickers = 0
         # this is simulating the probability of getting card #10 given that the album is empty. i.e. the probability of obtaining a given card.
-        self.__sticker = 10  
+        self.__sticker = 10
         self.__pack_size = pack_size
         self.found=False
 
-    def packs_till_complete(self):
+    def packs_till_found(self):
         packs = 0
         while not self.collection[self.__sticker]:
             self.add_pack()
             packs += 1
-        return packs
+        return packs, self.stickers
 
     def add_pack(self):
         new_pack = Pack.Pack(self.__pack_size, self.__size)
