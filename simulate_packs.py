@@ -16,7 +16,7 @@ results = Accumulator.Accumulator()
 resultsSticker = Accumulator.Accumulator()
 
 for i in range(runs):
-    collection = StickerCollection.StickerCollection(Panini.NUMBER_OF_STICKERS, Panini.STICKERS_TO_REQUEST, Panini.STICKERS_PER_PACK)
+    collection = StickerCollection.StickerCollection(Panini.NUMBER_OF_STICKERS, Panini.STICKERS_TO_REQUEST, Panini.STICKERS_PER_PACK, Panini.ALREADY_OWNED_PACKS)
     forSticker = StickerCollection.SpecificSticker(Panini.NUMBER_OF_STICKERS, Panini.STICKERS_PER_PACK)
     results.add_value(collection.packs_till_complete())
     resultsSticker.add_value(forSticker.packs_till_complete())

@@ -2,10 +2,10 @@ from Panini import Pack
 
 class StickerCollection:
 
-    def __init__(self, size, stickers_requestable, pack_size):
+    def __init__(self, size, stickers_requestable, pack_size, already_owned):
         self.__size = size
-        self.collection = [0] * (size)
-        self.stickers = 0
+        self.collection = [0] * (size-already_owned) + [1] * already_owned
+        self.stickers = already_owned
         self.__threshold = size - stickers_requestable
         self.__pack_size = pack_size
 
@@ -46,4 +46,3 @@ class SpecificSticker:
             self.collection[i] += 1
             if self.collection[i] == 1:
                 self.stickers += 1
-                
